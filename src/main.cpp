@@ -9,7 +9,14 @@
 #include "utility/benchmark.hpp"
 #include "utility/buffer_match.hpp"
 #include "utility/filesize.hpp"
+
+#ifdef TEST_ZIP_INSTEAD
+#include "utility/zip_compressor.hpp"
+#define COMPRESSOR_TO_TEST zip_compressor
+#else
 #include "utility/xz_compressor.hpp"
+#define COMPRESSOR_TO_TEST xz_compressor
+#endif
 
 
 std::pair<long long,long long> test_compressor(const std::string& filename,std::uint32_t compressor_preset,bool extreme,bool print_to_cout = false);
@@ -65,7 +72,7 @@ inline std::pair<long long,long long> test_compressor(const std::string& filenam
 	std::vector<uint8_t> perm_decomp;
 
 	{
-		xz_compressor compressor(compressor_preset,extreme);
+		COMPRESSOR_TO_TEST compressor(compressor_preset,extreme);
 		compressor.select(filename+".xz");
 		compressor.set(&uncomp);
 		
@@ -76,7 +83,7 @@ inline std::pair<long long,long long> test_compressor(const std::string& filenam
 	long long A = pixl::last_duration;
 
 	{
-		xz_compressor de_compressor;
+		COMPRESSOR_TO_TEST de_compressor;
 		de_compressor.select(filename + ".xz");
 		de_compressor.read();
 		{

@@ -8,11 +8,6 @@ namespace pixl
 	{
 		if(A.size() != B.size()) return false;
 
-		for(std::size_t itr = 0; itr < A.size(); ++itr)
-		{
-			if(A[itr] != B[itr]) return false;
-		}
-		
-		return true;
+		return memcmp(A.data(),B.data(),A.size()) == 0;
 	}
 }
