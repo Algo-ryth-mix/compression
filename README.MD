@@ -149,3 +149,27 @@ Note LZMA seemes to really benefit from "Ultra", wheras ZIP shows diminshing ret
 
 Which algorithm to choose ? preferentally both for different sections of your game. LZMA shines with overall smaller compressed archives and still quite good decompression speeds. However to store savegames, it is less than ideal. compressing big datasets in realtime is not feasable, and unless you can save your game asynchronously I would not recommend it.
 ZIP on the other hand, has good compression and excellent decompression speeds while maintaining a respectable archive size. it is ideal for saving data your game produces. However if you absolutely must choose only one, use LZMA if you suspect that your save-games will stay small, as it does not take significantly more time to compress small data then ZIP, otherwise use ZIP. If you require a starting point for one or both algorithms feel free to use this repository as inspiration. Make sure to checkout [LICENSE.MD](LICENSE.MD) and [THIRD_PARTY_LICENSES.MD](THIRD_PARTY_LICENSES.MD) before however. (don't worry it is all very open.)
+
+### Using this
+Can I use this to compare my onw datasets? Yes, here is how to do it.
+
+#### step 0
+- get cmake
+- get python3
+- get liblzma
+
+
+#### step 1 Compiling
+
+First. you need a windows host (sorry no linux support currently). then get precompiled binaries for liblzma or compile them yourself. (make sure you have the lib and the dll not just a [def and a dll](https://stackoverflow.com/questions/9360280/how-to-make-a-lib-file-when-have-a-dll-file-and-a-header-file)) place the lib alongside the main.cpp, place the dll in your cmake output path(where the binaries are going to be built).
+Then adjust testing/autotest.bat for your own datasets. finally run bootstrap-test.bat in the root directory.
+
+#### step 2 Using the datasets
+
+the bootstrap-test.bat creates two directories for you, "results.zip" and "results.lzma", choose whatever one you want and copy all `.txt` files into the folder called "stitching". in that directory run `python3 data_stitcher.py`
+this will create a results.csv file that you can open in your favourite spreadsheet programm
+
+#### step 3 visualizing the data with excel
+
+copy one of the spreadsheets from the xxxkb folder to a new folder, call it whatever you like, choose the spreadsheet that corresponds to the dataset you just stitched.
+copy the results.csv to that folder as well. open both spreadsheets in excel. In the results.csv use the sort function of excel to sort the entire sheet using the "Extreme" row. Copy the diagrams over to the new spreadsheet (making sure to also copy the green bars). Now right click on the diagram and select set datasets, enter the new datasets from the results.csv, finally save the results.csv as \<yourcustomname\>.xlsx otherwise the diagrams will be gone. to export the diagrams, CTRL-C the diagram and CTRL-V it in Paint.
