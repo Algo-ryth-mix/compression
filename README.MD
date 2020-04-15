@@ -151,7 +151,7 @@ Which algorithm to choose ? preferentally both for different sections of your ga
 ZIP on the other hand, has good compression and excellent decompression speeds while maintaining a respectable archive size. it is ideal for saving data your game produces. However if you absolutely must choose only one, use LZMA if you suspect that your save-games will stay small, as it does not take significantly more time to compress small data then ZIP, otherwise use ZIP. If you require a starting point for one or both algorithms feel free to use this repository as inspiration. Make sure to checkout [LICENSE.MD](LICENSE.MD) and [THIRD_PARTY_LICENSES.MD](THIRD_PARTY_LICENSES.MD) before however. (don't worry it is all very open.)
 
 ### Using this
-Can I use this to compare my onw datasets? Yes, here is how to do it.
+Can I use this to compare my own datasets? Yes, here is how to do it.
 
 #### step 0
 - get cmake
