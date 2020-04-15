@@ -64,10 +64,12 @@ To be perferctly honest, I have been using the excellent software 7ZIP for a few
 #### 780kb
 
 > ZIP compression & decompression time
-![780kb-zip-ct](780kb/zip-780-ct.png "780kb-zip-ct")
+>
+>![780kb-zip-ct](780kb/zip-780-ct.png "780kb-zip-ct")
 
 >LZMA compression & decompression time
-![780kb-lzma-ct](780kb/lzma-780-ct.png "780kb-lzma-ct")
+>
+>![780kb-lzma-ct](780kb/lzma-780-ct.png "780kb-lzma-ct")
 
 Note LZMA has ranges 0-9 and an extreme switch, the results in green are the normal results,
 from this we can already see that it takes an order of magnitude longer to compress than it takes to decompress, regardless of the alorithm. Furthermore ZIP scales way more dramatically than LZMA. However take a close look on the scales. LZMA is somewhere between 10x and 2x slower than ZIP. (The scale is a bit squished for decompression, but ZIP wins here as well)
@@ -76,10 +78,12 @@ The other main point is the compression ratio:
 aka compressed-size/raw-size
 
 > ZIP compression ratios
-![780kb-zip-cr](780kb/zip-780-cr.png "780kb-zip-cr")
+>
+>![780kb-zip-cr](780kb/zip-780-cr.png "780kb-zip-cr")
 
 >LZMA compression ratios
-![780kb-lzma-cr](780kb/lzma-780-cr.png "780kb-lzma-cr")
+>
+>![780kb-lzma-cr](780kb/lzma-780-cr.png "780kb-lzma-cr")
 
 As you can see from this example, both of them seem to struggle when it comes to scaling, from ZIP you get deminshing returns after preset 3 and LZMA really only seems to perform in "Extreme" mode at all. Note however that LZMA has the leading edge here by at least 5%
 
@@ -87,45 +91,57 @@ More examples:
 
 #### 6700kb
 > ZIP compression & decompression time
-![6700kb-zip-ct](6700kb/zip-6700-ct.png "6700kb-zip-ct")
+>
+>![6700kb-zip-ct](6700kb/zip-6700-ct.png "6700kb-zip-ct")
 
 >LZMA compression & decompression time
-![6700kb-lzma-ct](6700kb/lzma-6700-ct.png "6700kb-lzma-ct")
+>
+>![6700kb-lzma-ct](6700kb/lzma-6700-ct.png "6700kb-lzma-ct")
 
 > ZIP compression ratios
-![6700kb-zip-cr](6700kb/zip-6700-cr.png "6700kb-zip-cr")
+>
+>![6700kb-zip-cr](6700kb/zip-6700-cr.png "6700kb-zip-cr")
 
 >LZMA compression ratios
-![6700kb-lzma-cr](6700kb/lzma-6700-cr.png "6700kb-lzma-cr")
+>
+>![6700kb-lzma-cr](6700kb/lzma-6700-cr.png "6700kb-lzma-cr")
 
 #### 31610kb
 > ZIP compression & decompression time
-![31610kb-zip-ct](31610kb/zip-31610-ct.png "31610kb-zip-ct")
+>
+>![31610kb-zip-ct](31610kb/zip-31610-ct.png "31610kb-zip-ct")
 
 >LZMA compression & decompression time
-![31610kb-lzma-ct](31610kb/lzma-31610-ct.png "31610kb-lzma-ct")
+>
+>![31610kb-lzma-ct](31610kb/lzma-31610-ct.png "31610kb-lzma-ct")
 
 > ZIP compression ratios
-![31610kb-zip-cr](31610kb/zip-31610-cr.png "31610kb-zip-cr")
+>
+>![31610kb-zip-cr](31610kb/zip-31610-cr.png "31610kb-zip-cr")
 
 >LZMA compression ratios
-![31610kb-lzma-cr](31610kb/lzma-31610-cr.png "31610kb-lzma-cr")
+>
+>![31610kb-lzma-cr](31610kb/lzma-31610-cr.png "31610kb-lzma-cr")
 
 Note this is the first time that we can observe LZMA having different behaviour at lower levels at all, to me it is not entirely clear why, but it seems to oscillate between two different settings. Furthermore "extreme" was only able to beat the normal mode in the highest settings. LZMA still wins in terms of compressed size, and it not excessively slower in decompression than ZIP, however ZIP still wins in compression 
 speed.
 
 #### 212631kb
 > ZIP compression & decompression time
-![212631kb-zip-ct](212631kb/zip-212631-ct.png "212631kb-zip-ct")
+>
+>![212631kb-zip-ct](212631kb/zip-212631-ct.png "212631kb-zip-ct")
 
 >LZMA compression & decompression time
-![212631kb-lzma-ct](212631kb/lzma-212631-ct.png "212631kb-lzma-ct")
+>
+>![212631kb-lzma-ct](212631kb/lzma-212631-ct.png "212631kb-lzma-ct")
 
 > ZIP compression ratios
-![212631kb-zip-cr](212631kb/zip-212631-cr.png "212631kb-zip-cr")
+>
+>![212631kb-zip-cr](212631kb/zip-212631-cr.png "212631kb-zip-cr")
 
 >LZMA compression ratios
-![212631kb-lzma-cr](212631kb/lzma-212631-cr.png "212631kb-lzma-cr")
+>
+>![212631kb-lzma-cr](212631kb/lzma-212631-cr.png "212631kb-lzma-cr")
 
 Note LZMA seemes to really benefit from "Ultra", wheras ZIP shows diminshing returns consistently after the 3rd preset.
 
