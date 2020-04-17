@@ -1,5 +1,7 @@
 ## Compression Algorithms Comparison for Games & Game Assets
 
+### Justification
+
 Games typcially pack their data into archives for easier redistribution and for space-constraints. I wanted to explore the two most ubiquitous compression methods for there suitability in game engines and which one would perform better in a realtime game application. The main factors being decompression speed and compressed size.
 
 ### ZIP
@@ -173,3 +175,10 @@ this will create a results.csv file that you can open in your favourite spreadsh
 
 copy one of the spreadsheets from the xxxkb folder to a new folder, call it whatever you like, choose the spreadsheet that corresponds to the dataset you just stitched.
 copy the results.csv to that folder as well. open both spreadsheets in excel. In the results.csv use the sort function of excel to sort the entire sheet using the "Extreme" row. Copy the diagrams over to the new spreadsheet (making sure to also copy the green bars). Now right click on the diagram and select set datasets, enter the new datasets from the results.csv, finally save the results.csv as \<yourcustomname\>.xlsx otherwise the diagrams will be gone. to export the diagrams, CTRL-C the diagram and CTRL-V it in Paint.
+
+#### Extra time spent on this:
+~ 20 hrs attempting to compiling lib7z, this library was dropped as it didn't work out for linux or mac, and the AES-Encryption in it was deemed as a CVE (CVE-2018-10172), although this repository doesn't use the encryption module at all and although 7z was fixed, I did not feel comfortable using this library anymore, this was replaced by the excellent xz-utils, which compiled for windows without much trouble.
+
+~ 15 hrs of creating the initial adaptor, this was done before the repository was initialized, the first 3 commits show this change, this was not recorded as I initially created this within the liblzma repository for a quick test. but I liked the adaptor enough to go on with it into testing directly.
+
+~ 7 hrs generating the datasets, these were then compiled into the graphs on this page.
